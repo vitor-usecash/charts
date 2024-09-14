@@ -13,8 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:meta/meta.dart' show immutable;
-
 import '../draw_strategy/small_tick_draw_strategy.dart'
     show SmallTickRendererSpec;
 import '../time/date_time_extents.dart' show DateTimeExtents;
@@ -27,7 +25,7 @@ import 'date_time_axis_spec.dart'
         DateTimeTickProviderSpec;
 
 /// Default [AxisSpec] used for Timeseries charts.
-@immutable
+
 class EndPointsTimeAxisSpec extends DateTimeAxisSpec {
   /// Creates a [AxisSpec] that specialized for timeseries charts.
   ///

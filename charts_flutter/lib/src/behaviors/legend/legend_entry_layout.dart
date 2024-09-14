@@ -17,7 +17,7 @@ import 'package:charts_common/common.dart' as common;
 import 'package:charts_flutter/src/util/color.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart'
-    show GestureDetector, GestureTapUpCallback, TapUpDetails, Theme;
+    show Colors, GestureDetector, GestureTapUpCallback, TapUpDetails, Theme;
 
 import '../../symbol_renderer.dart';
 import 'legend.dart' show TappableLegend;
@@ -131,8 +131,8 @@ class SimpleLegendEntryLayout implements LegendEntryLayout {
         : null;
     if (isHidden) {
       // Use a default color for hidden legend entries if none is provided.
-      color ??= Theme.of(context).textTheme.bodyText2!.color;
-      color = color!.withOpacity(0.26);
+      color ??= Theme.of(context).textTheme.bodyMedium?.color ?? Colors.white;
+      color = color.withOpacity(0.26);
     }
 
     return new TextStyle(

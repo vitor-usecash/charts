@@ -26,7 +26,6 @@ import 'package:charts_common/common.dart' as common
         TextStyleSpec;
 import 'package:collection/collection.dart' show ListEquality;
 import 'package:flutter/widgets.dart' show hashValues;
-import 'package:meta/meta.dart' show immutable;
 
 import 'chart_behavior.dart' show ChartBehavior, GestureType;
 
@@ -36,7 +35,7 @@ import 'chart_behavior.dart' show ChartBehavior, GestureType;
 ///
 /// This is typically used for line charts to call out sections of the data
 /// range.
-@immutable
+
 class RangeAnnotation<D> extends ChartBehavior<D> {
   final desiredGestures = new Set<GestureType>();
 

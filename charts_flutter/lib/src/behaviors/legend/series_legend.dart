@@ -29,7 +29,7 @@ import 'package:charts_common/common.dart' as common
 import 'package:collection/collection.dart' show ListEquality;
 import 'package:flutter/widgets.dart'
     show BuildContext, EdgeInsets, Widget, hashValues;
-import 'package:meta/meta.dart' show immutable;
+
 import '../../chart_container.dart' show ChartContainerRenderObject;
 import '../chart_behavior.dart'
     show BuildableBehavior, ChartBehavior, GestureType;
@@ -39,7 +39,7 @@ import 'legend_content_builder.dart'
 import 'legend_layout.dart' show TabularLegendLayout;
 
 /// Series legend behavior for charts.
-@immutable
+
 class SeriesLegend<D> extends ChartBehavior<D> {
   static const defaultBehaviorPosition = common.BehaviorPosition.top;
   static const defaultOutsideJustification =

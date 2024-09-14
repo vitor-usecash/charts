@@ -23,12 +23,11 @@ import 'package:charts_common/common.dart' as common
         OutsideJustification,
         TextStyleSpec;
 import 'package:flutter/widgets.dart' show hashValues;
-import 'package:meta/meta.dart' show immutable;
 
 import '../chart_behavior.dart' show ChartBehavior, GestureType;
 
 /// Chart behavior that adds a ChartTitle widget to a chart.
-@immutable
+
 class ChartTitle<D> extends ChartBehavior<D> {
   final desiredGestures = new Set<GestureType>();
 

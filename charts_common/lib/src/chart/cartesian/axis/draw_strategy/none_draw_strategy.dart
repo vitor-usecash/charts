@@ -15,7 +15,7 @@
 
 import 'dart:math';
 
-import 'package:meta/meta.dart' show immutable;
+
 
 import '../../../../common/color.dart' show Color;
 import '../../../../common/graphics_factory.dart' show GraphicsFactory;
@@ -33,7 +33,7 @@ import 'tick_draw_strategy.dart';
 
 /// Renders no ticks no labels, and claims no space in layout.
 /// However, it does render the axis line if asked to by the axis.
-@immutable
+
 class NoneRenderSpec<D> extends RenderSpec<D> {
   final LineStyleSpec? axisLineStyle;
 

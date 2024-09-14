@@ -27,7 +27,7 @@ import 'package:charts_common/common.dart' as common
         TextStyleSpec;
 import 'package:flutter/widgets.dart'
     show BuildContext, EdgeInsets, Widget, hashValues;
-import 'package:meta/meta.dart' show immutable;
+
 import '../../chart_container.dart' show ChartContainerRenderObject;
 import '../chart_behavior.dart'
     show BuildableBehavior, ChartBehavior, GestureType;
@@ -40,7 +40,7 @@ import 'legend_layout.dart' show TabularLegendLayout;
 ///
 /// By default this behavior creates one legend entry per datum in the first
 /// series rendered on the chart.
-@immutable
+
 class DatumLegend<D> extends ChartBehavior<D> {
   static const defaultBehaviorPosition = common.BehaviorPosition.top;
   static const defaultOutsideJustification =

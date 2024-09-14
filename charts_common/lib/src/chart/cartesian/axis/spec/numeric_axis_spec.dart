@@ -15,7 +15,6 @@
 
 import 'package:charts_common/src/chart/cartesian/axis/tick_formatter.dart';
 import 'package:intl/intl.dart';
-import 'package:meta/meta.dart' show immutable;
 
 import '../../../../common/graphics_factory.dart' show GraphicsFactory;
 import '../../../common/chart_context.dart' show ChartContext;
@@ -31,7 +30,7 @@ import 'axis_spec.dart'
 import 'tick_spec.dart' show TickSpec;
 
 /// [AxisSpec] specialized for numeric/continuous axes like the measure axis.
-@immutable
+
 class NumericAxisSpec extends AxisSpec<num> {
   /// Sets viewport for this Axis.
   ///
@@ -112,7 +111,6 @@ abstract class NumericTickProviderSpec extends TickProviderSpec<num> {}
 
 abstract class NumericTickFormatterSpec extends TickFormatterSpec<num> {}
 
-@immutable
 class BasicNumericTickProviderSpec implements NumericTickProviderSpec {
   final bool? zeroBound;
   final bool? dataIsInWholeNumbers;
@@ -183,7 +181,7 @@ class BasicNumericTickProviderSpec implements NumericTickProviderSpec {
 
 /// [TickProviderSpec] that sets up numeric ticks at the two end points of the
 /// axis range.
-@immutable
+
 class NumericEndPointsTickProviderSpec implements NumericTickProviderSpec {
   /// Creates a [TickProviderSpec] that dynamically chooses numeric ticks at the
   /// two end points of the axis range
@@ -200,7 +198,7 @@ class NumericEndPointsTickProviderSpec implements NumericTickProviderSpec {
 }
 
 /// [TickProviderSpec] that allows you to specific the ticks to be used.
-@immutable
+
 class StaticNumericTickProviderSpec implements NumericTickProviderSpec {
   final List<TickSpec<num>> tickSpecs;
 
@@ -219,7 +217,6 @@ class StaticNumericTickProviderSpec implements NumericTickProviderSpec {
   int get hashCode => tickSpecs.hashCode;
 }
 
-@immutable
 class BasicNumericTickFormatterSpec implements NumericTickFormatterSpec {
   final MeasureFormatter? formatter;
   final NumberFormat? numberFormat;

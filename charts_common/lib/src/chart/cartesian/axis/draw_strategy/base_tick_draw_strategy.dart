@@ -15,7 +15,7 @@
 
 import 'dart:math';
 
-import 'package:meta/meta.dart' show immutable, protected;
+
 
 import '../../../../common/graphics_factory.dart' show GraphicsFactory;
 import '../../../../common/line_style.dart' show LineStyle;
@@ -38,7 +38,7 @@ import '../spec/axis_spec.dart'
 import '../tick.dart' show Tick;
 import 'tick_draw_strategy.dart' show TickDrawStrategy;
 
-@immutable
+
 abstract class BaseRenderSpec<D> implements RenderSpec<D> {
   final TextStyleSpec? labelStyle;
   final TickLabelAnchor? labelAnchor;
@@ -435,7 +435,7 @@ abstract class BaseTickDrawStrategy<D> implements TickDrawStrategy<D> {
   }
 
   // TODO: Why is drawAreaBounds required when it is unused?
-  @protected
+
   void drawLabel(
     ChartCanvas canvas,
     Tick<D> tick, {
@@ -557,7 +557,7 @@ abstract class BaseTickDrawStrategy<D> implements TickDrawStrategy<D> {
     }
   }
 
-  @protected
+
   _PixelVerticalDirection normalizeVerticalAnchor(
       TickLabelAnchor anchor, bool isFirst, bool isLast) {
     switch (anchor) {

@@ -15,7 +15,6 @@
 
 import 'dart:math';
 
-import 'package:meta/meta.dart' show immutable;
 
 import '../../../../common/graphics_factory.dart' show GraphicsFactory;
 import '../../../../common/line_style.dart' show LineStyle;
@@ -30,7 +29,7 @@ import 'base_tick_draw_strategy.dart' show BaseTickDrawStrategy;
 import 'small_tick_draw_strategy.dart' show SmallTickRendererSpec;
 import 'tick_draw_strategy.dart' show TickDrawStrategy;
 
-@immutable
+
 class GridlineRendererSpec<D> extends SmallTickRendererSpec<D> {
   const GridlineRendererSpec({
     TextStyleSpec? labelStyle,

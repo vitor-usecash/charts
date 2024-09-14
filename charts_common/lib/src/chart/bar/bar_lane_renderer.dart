@@ -14,7 +14,6 @@
 // limitations under the License.
 
 import 'dart:collection' show LinkedHashMap;
-import 'package:collection/collection.dart' show IterableExtension;
 
 import '../../data/series.dart' show AttributeKey;
 import '../cartesian/axis/axis.dart'
@@ -170,8 +169,7 @@ class BarLaneRenderer<D> extends BarRenderer<D> {
             barStackMapKey, () => <AnimatedBar<D>>[]);
 
         // If we already have an AnimatingBar for that index, use it.
-        var animatingBar =
-            barStackList.firstWhereOrNull((bar) => bar.key == barKey);
+        var animatingBar = barStackList.firstWhere((bar) => bar.key == barKey);
 
         final renderNegativeLanes =
             (config as BarLaneRendererConfig).renderNegativeLanes;
@@ -285,34 +283,36 @@ class BarLaneRenderer<D> extends BarRenderer<D> {
           final barStackList = _barLaneStackMap.putIfAbsent(
               barStackMapKey, () => <AnimatedBar<D>>[]);
 
+          var defaultAnimation = makeAnimatedBar(
+              key: barKey,
+              series: mergedSeries,
+              datum: datum,
+              barGroupIndex: barGroupIndex,
+              previousBarGroupWeight: previousBarGroupWeight,
+              barGroupWeight: barGroupWeight,
+              color: (config as BarLaneRendererConfig).backgroundBarColor,
+              details: BarRendererElement<D>(),
+              domainValue: domainValue,
+              domainAxis: domainAxis,
+              domainWidth: domainAxis.rangeBand.round(),
+              fillColor: (config as BarLaneRendererConfig).backgroundBarColor,
+              measureValue: maxMeasureValue,
+              measureOffsetValue: 0.0,
+              measureAxisPosition: measureAxisPosition,
+              measureAxis: measureAxis,
+              numBarGroups: barGroupCount,
+              strokeWidthPx: config.strokeWidthPx,
+              measureIsNull: false,
+              measureIsNegative: false);
+
           // If we already have an AnimatingBar for that index, use it.
           var animatingBar =
-              barStackList.firstWhereOrNull((bar) => bar.key == barKey);
+              barStackList.firstWhere((bar) => bar.key == barKey, orElse: () => defaultAnimation);
 
           // If we don't have any existing bar element, create a new bar and have
           // it animate in from the domain axis.
           if (animatingBar == null) {
-            animatingBar = makeAnimatedBar(
-                key: barKey,
-                series: mergedSeries,
-                datum: datum,
-                barGroupIndex: barGroupIndex,
-                previousBarGroupWeight: previousBarGroupWeight,
-                barGroupWeight: barGroupWeight,
-                color: (config as BarLaneRendererConfig).backgroundBarColor,
-                details: BarRendererElement<D>(),
-                domainValue: domainValue,
-                domainAxis: domainAxis,
-                domainWidth: domainAxis.rangeBand.round(),
-                fillColor: (config as BarLaneRendererConfig).backgroundBarColor,
-                measureValue: maxMeasureValue,
-                measureOffsetValue: 0.0,
-                measureAxisPosition: measureAxisPosition,
-                measureAxis: measureAxis,
-                numBarGroups: barGroupCount,
-                strokeWidthPx: config.strokeWidthPx,
-                measureIsNull: false,
-                measureIsNegative: false);
+            animatingBar = defaultAnimation;
 
             barStackList.add(animatingBar);
           } else {

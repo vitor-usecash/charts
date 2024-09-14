@@ -15,7 +15,7 @@
 
 import 'dart:math';
 
-import 'package:meta/meta.dart' show immutable;
+
 
 import '../../../../common/graphics_factory.dart' show GraphicsFactory;
 import '../../../../common/line_style.dart' show LineStyle;
@@ -29,7 +29,7 @@ import '../tick.dart' show Tick;
 import 'base_tick_draw_strategy.dart' show BaseRenderSpec, BaseTickDrawStrategy;
 import 'tick_draw_strategy.dart' show TickDrawStrategy;
 
-@immutable
+
 class SmallTickRendererSpec<D> extends BaseRenderSpec<D> {
   final LineStyleSpec? lineStyle;
   final int? tickLengthPx;

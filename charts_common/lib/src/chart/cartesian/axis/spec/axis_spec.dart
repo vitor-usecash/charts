@@ -13,8 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:meta/meta.dart' show immutable;
-
 import '../../../../common/color.dart' show Color;
 import '../../../../common/graphics_factory.dart' show GraphicsFactory;
 import '../../../common/chart_context.dart' show ChartContext;
@@ -24,7 +22,6 @@ import '../scale.dart' show Scale, MutableScale;
 import '../tick_formatter.dart' show TickFormatter;
 import '../tick_provider.dart' show TickProvider;
 
-@immutable
 class AxisSpec<D> {
   final bool? showAxisLine;
   final RenderSpec<D>? renderSpec;
@@ -107,22 +104,18 @@ class AxisSpec<D> {
   }
 }
 
-@immutable
 abstract class TickProviderSpec<D> {
   TickProvider<D> createTickProvider(ChartContext context);
 }
 
-@immutable
 abstract class TickFormatterSpec<D> {
   TickFormatter<D> createTickFormatter(ChartContext context);
 }
 
-@immutable
 abstract class ScaleSpec<D> {
   Scale<D> createScale();
 }
 
-@immutable
 abstract class RenderSpec<D> {
   const RenderSpec();
 
@@ -130,7 +123,6 @@ abstract class RenderSpec<D> {
       ChartContext context, GraphicsFactory graphicFactory);
 }
 
-@immutable
 class TextStyleSpec {
   final String? fontFamily;
   final int? fontSize;
@@ -167,7 +159,6 @@ class TextStyleSpec {
   }
 }
 
-@immutable
 class LineStyleSpec {
   final Color? color;
   final List<int>? dashPattern;

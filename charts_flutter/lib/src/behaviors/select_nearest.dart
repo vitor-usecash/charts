@@ -21,8 +21,6 @@ import 'package:charts_common/common.dart' as common
         SelectionModelType,
         SelectionTrigger;
 
-import 'package:meta/meta.dart' show immutable;
-
 import 'chart_behavior.dart' show ChartBehavior, GestureType;
 
 /// Chart behavior that listens to the given eventTrigger and updates the
@@ -48,7 +46,7 @@ import 'chart_behavior.dart' show ChartBehavior, GestureType;
 /// You can add one SelectNearest for each model type that you are updating.
 /// Any previous SelectNearest behavior for that selection model will be
 /// removed.
-@immutable
+
 class SelectNearest<D> extends ChartBehavior<D> {
   final Set<GestureType> desiredGestures;
 

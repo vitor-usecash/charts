@@ -13,9 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:meta/meta.dart' show immutable;
-
-@immutable
 class Color {
   static const black = Color(r: 0, g: 0, b: 0);
   static const white = Color(r: 255, g: 255, b: 255);

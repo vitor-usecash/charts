@@ -15,7 +15,6 @@
 
 import 'package:charts_common/common.dart' as common
     show ChartBehavior, PercentInjector, PercentInjectorTotalType;
-import 'package:meta/meta.dart' show immutable;
 
 import '../chart_behavior.dart' show ChartBehavior, GestureType;
 
@@ -35,7 +34,7 @@ import '../chart_behavior.dart' show ChartBehavior, GestureType;
 /// Note that if the chart has a [Legend] that is capable of hiding series data,
 /// then this behavior must be added after the [Legend] to ensure that it
 /// calculates values after series have been potentially removed from the list.
-@immutable
+
 class PercentInjector<D> extends ChartBehavior<D> {
   final desiredGestures = new Set<GestureType>();
 

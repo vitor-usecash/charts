@@ -7,12 +7,12 @@ environment:
 dependencies:
   charts_flutter:
     path: ../
-  cupertino_icons: ^0.1.0
+  cupertino_icons: any
   flutter:
     sdk: flutter
   flutter_test:
     sdk: flutter
   meta: ^1.1.1
-  intl: ">=0.15.2 < 0.18.0"
+  intl: any
 flutter:
   uses-material-design: true

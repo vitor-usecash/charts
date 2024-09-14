@@ -410,7 +410,7 @@ enum ArcLabelPosition {
 }
 
 /// Style configuration for leader lines.
-@immutable
+
 class ArcLabelLeaderLineStyleSpec {
   final Color color;
   final double length;

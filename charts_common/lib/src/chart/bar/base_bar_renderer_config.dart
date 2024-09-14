@@ -13,8 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:collection/collection.dart' show ListEquality;
-
 import '../../common/symbol_renderer.dart'
     show SymbolRenderer, RoundedRectSymbolRenderer;
 import '../common/chart_canvas.dart' show FillPatternType;
@@ -134,8 +132,7 @@ abstract class BaseBarRendererConfig<D> extends LayoutViewConfig
         other.maxBarWidthPx == maxBarWidthPx &&
         other.stackedBarPaddingPx == stackedBarPaddingPx &&
         other.strokeWidthPx == strokeWidthPx &&
-        other.symbolRenderer == symbolRenderer &&
-        ListEquality<int>().equals(other.weightPattern, weightPattern);
+        other.symbolRenderer == symbolRenderer;
   }
 
   @override

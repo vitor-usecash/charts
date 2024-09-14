@@ -22,7 +22,6 @@ import 'package:charts_common/common.dart' as common
         SelectionModelType,
         SymbolRenderer;
 import 'package:flutter/widgets.dart' show hashValues;
-import 'package:meta/meta.dart' show immutable;
 
 import 'chart_behavior.dart' show ChartBehavior, GestureType;
 
@@ -33,7 +32,7 @@ import 'chart_behavior.dart' show ChartBehavior, GestureType;
 ///
 /// It is used in combination with SelectNearest to update the selection model
 /// and expand selection out to the domain value.
-@immutable
+
 class LinePointHighlighter<D> extends ChartBehavior<D> {
   final desiredGestures = new Set<GestureType>();
 

@@ -15,7 +15,6 @@
 
 import 'package:charts_common/src/chart/cartesian/axis/scale.dart'
     show RangeBandConfig;
-import 'package:meta/meta.dart' show immutable;
 
 import '../../../../common/graphics_factory.dart' show GraphicsFactory;
 import '../../../common/chart_context.dart' show ChartContext;
@@ -33,7 +32,7 @@ import 'axis_spec.dart'
 import 'tick_spec.dart' show TickSpec;
 
 /// [AxisSpec] specialized for ordinal/non-continuous axes typically for bars.
-@immutable
+
 class OrdinalAxisSpec extends AxisSpec<String> {
   /// Sets viewport for this Axis.
   ///
@@ -100,7 +99,6 @@ abstract class OrdinalTickFormatterSpec extends TickFormatterSpec<String> {}
 
 abstract class OrdinalScaleSpec extends ScaleSpec<String> {}
 
-@immutable
 class BasicOrdinalTickProviderSpec implements OrdinalTickProviderSpec {
   const BasicOrdinalTickProviderSpec();
 
@@ -116,7 +114,7 @@ class BasicOrdinalTickProviderSpec implements OrdinalTickProviderSpec {
 }
 
 /// [TickProviderSpec] that allows you to specify the ticks to be used.
-@immutable
+
 class StaticOrdinalTickProviderSpec implements OrdinalTickProviderSpec {
   final List<TickSpec<String>> tickSpecs;
 
@@ -137,7 +135,7 @@ class StaticOrdinalTickProviderSpec implements OrdinalTickProviderSpec {
 
 /// [TickProviderSpec] that tries different tick increments to avoid tick
 /// collisions.
-@immutable
+
 class AutoAdjustingStaticOrdinalTickProviderSpec
     implements OrdinalTickProviderSpec {
   final List<TickSpec<String>> tickSpecs;
@@ -162,7 +160,7 @@ class AutoAdjustingStaticOrdinalTickProviderSpec
 }
 
 /// [TickProviderSpec] that allows you to provide range ticks and normal ticks.
-@immutable
+
 class RangeOrdinalTickProviderSpec implements OrdinalTickProviderSpec {
   final List<TickSpec<String>> tickSpecs;
   const RangeOrdinalTickProviderSpec(this.tickSpecs);
@@ -180,7 +178,6 @@ class RangeOrdinalTickProviderSpec implements OrdinalTickProviderSpec {
   int get hashCode => tickSpecs.hashCode;
 }
 
-@immutable
 class BasicOrdinalTickFormatterSpec implements OrdinalTickFormatterSpec {
   const BasicOrdinalTickFormatterSpec();
 
@@ -195,7 +192,6 @@ class BasicOrdinalTickFormatterSpec implements OrdinalTickFormatterSpec {
   int get hashCode => 37;
 }
 
-@immutable
 class SimpleOrdinalScaleSpec implements OrdinalScaleSpec {
   const SimpleOrdinalScaleSpec();
 
@@ -211,7 +207,7 @@ class SimpleOrdinalScaleSpec implements OrdinalScaleSpec {
 
 /// [OrdinalScaleSpec] which allows setting space between bars to be a fixed
 /// pixel size.
-@immutable
+
 class FixedPixelSpaceOrdinalScaleSpec implements OrdinalScaleSpec {
   final double pixelSpaceBetweenBars;
 
@@ -230,7 +226,7 @@ class FixedPixelSpaceOrdinalScaleSpec implements OrdinalScaleSpec {
 }
 
 /// [OrdinalScaleSpec] which allows setting bar width to be a fixed pixel size.
-@immutable
+
 class FixedPixelOrdinalScaleSpec implements OrdinalScaleSpec {
   final double pixels;
 

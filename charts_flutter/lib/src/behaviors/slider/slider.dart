@@ -25,7 +25,6 @@ import 'package:charts_common/common.dart' as common
         SliderStyle,
         SymbolRenderer;
 import 'package:flutter/widgets.dart' show hashValues;
-import 'package:meta/meta.dart' show immutable;
 
 import '../chart_behavior.dart' show ChartBehavior, GestureType;
 
@@ -39,7 +38,7 @@ import '../chart_behavior.dart' show ChartBehavior, GestureType;
 ///       panning.
 ///   longPressHold - Mouse/Touch for a while on the handle, then drag across
 ///       the data.
-@immutable
+
 class Slider<D> extends ChartBehavior<D> {
   final Set<GestureType> desiredGestures;
 

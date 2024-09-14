@@ -32,7 +32,6 @@ import 'base_chart.dart' show BaseChart, LayoutConfig;
 import 'selection_model_config.dart' show SelectionModelConfig;
 import 'user_managed_state.dart' show UserManagedState;
 
-@immutable
 abstract class CartesianChart<D> extends BaseChart<D> {
   final common.AxisSpec? domainAxis;
   final common.NumericAxisSpec? primaryMeasureAxis;

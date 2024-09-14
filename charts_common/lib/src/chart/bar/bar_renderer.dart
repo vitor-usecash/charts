@@ -15,7 +15,6 @@
 
 import 'dart:math' show max, min, Rectangle;
 
-import 'package:meta/meta.dart' show protected;
 
 import '../../common/color.dart' show Color;
 import '../../common/math.dart' show NullablePoint;
@@ -60,7 +59,7 @@ class BarRenderer<D>
 
   /// This constructor is protected because it is used by child classes, which
   /// cannot call the factory in their own constructors.
-  @protected
+  
   BarRenderer.internal({
     required BarRendererConfig<Object?> config,
     required String rendererId,

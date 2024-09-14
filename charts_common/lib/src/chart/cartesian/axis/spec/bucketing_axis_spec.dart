@@ -14,7 +14,6 @@
 // limitations under the License.
 
 import 'package:intl/intl.dart';
-import 'package:meta/meta.dart' show immutable;
 
 import '../../../../common/graphics_factory.dart' show GraphicsFactory;
 import '../../../common/chart_context.dart' show ChartContext;
@@ -52,7 +51,7 @@ import 'numeric_axis_spec.dart'
 ///       0         50          100
 ///
 /// This axis will format numbers as percents by default.
-@immutable
+
 class BucketingAxisSpec extends NumericAxisSpec {
   /// All values smaller than the threshold will be bucketed into the same
   /// position in the reserved space on the axis.
@@ -123,7 +122,6 @@ class BucketingAxisSpec extends NumericAxisSpec {
   }
 }
 
-@immutable
 class BucketingNumericTickProviderSpec extends BasicNumericTickProviderSpec {
   /// Creates a [TickProviderSpec] that generates ticks for a bucketing axis.
   ///

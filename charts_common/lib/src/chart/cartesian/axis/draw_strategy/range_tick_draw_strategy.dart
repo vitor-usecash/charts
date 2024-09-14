@@ -15,7 +15,6 @@
 
 import 'dart:math';
 
-import 'package:meta/meta.dart' show immutable;
 
 import '../../../../common/graphics_factory.dart' show GraphicsFactory;
 import '../../../../common/line_style.dart' show LineStyle;
@@ -41,7 +40,7 @@ import 'tick_draw_strategy.dart' show TickDrawStrategy;
 ///  |   |                       |            |                    |
 ///  |   (Individual tick)       |            (Individual tick)    |
 ///  |///////Range Label/////////|///////////Range Label///////////|
-@immutable
+
 class RangeTickRendererSpec<D> extends SmallTickRendererSpec<D> {
   // Specifies range shade's style.
   final LineStyleSpec? rangeShadeStyle;

@@ -16,12 +16,11 @@
 import 'package:charts_common/common.dart' as common
     show ChartBehavior, InitialSelection, SeriesDatumConfig, SelectionModelType;
 import 'package:collection/collection.dart' show ListEquality;
-import 'package:meta/meta.dart' show immutable;
 
 import 'chart_behavior.dart' show ChartBehavior, GestureType;
 
 /// Chart behavior that sets the initial selection for a [selectionModelType].
-@immutable
+
 class InitialSelection<D> extends ChartBehavior<D> {
   final desiredGestures = new Set<GestureType>();
 

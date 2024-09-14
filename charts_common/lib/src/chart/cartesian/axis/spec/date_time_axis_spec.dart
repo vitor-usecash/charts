@@ -13,8 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:meta/meta.dart' show immutable;
-import 'package:intl/intl.dart' show DateFormat;
+import 'package:intl/intl.dart';
 
 import '../../../../common/date_time_factory.dart' show DateTimeFactory;
 import '../../../../common/graphics_factory.dart' show GraphicsFactory;
@@ -41,7 +40,7 @@ import 'axis_spec.dart'
 import 'tick_spec.dart' show TickSpec;
 
 /// Generic [AxisSpec] specialized for Timeseries charts.
-@immutable
+
 class DateTimeAxisSpec extends AxisSpec<DateTime> {
   /// Sets viewport for this Axis.
   ///
@@ -109,7 +108,7 @@ abstract class DateTimeTickFormatterSpec extends TickFormatterSpec<DateTime> {}
 
 /// [TickProviderSpec] that sets up the automatically assigned time ticks based
 /// on the extents of your data.
-@immutable
+
 class AutoDateTimeTickProviderSpec implements DateTimeTickProviderSpec {
   final bool includeTime;
 
@@ -140,7 +139,7 @@ class AutoDateTimeTickProviderSpec implements DateTimeTickProviderSpec {
 }
 
 /// [TickProviderSpec] that sets up time ticks with days increments only.
-@immutable
+
 class DayTickProviderSpec implements DateTimeTickProviderSpec {
   final List<int>? increments;
 
@@ -169,7 +168,7 @@ class DayTickProviderSpec implements DateTimeTickProviderSpec {
 
 /// [TickProviderSpec] that sets up time ticks at the two end points of the axis
 /// range.
-@immutable
+
 class DateTimeEndPointsTickProviderSpec implements DateTimeTickProviderSpec {
   const DateTimeEndPointsTickProviderSpec();
 
@@ -186,7 +185,7 @@ class DateTimeEndPointsTickProviderSpec implements DateTimeTickProviderSpec {
 }
 
 /// [TickProviderSpec] that allows you to specific the ticks to be used.
-@immutable
+
 class StaticDateTimeTickProviderSpec implements DateTimeTickProviderSpec {
   final List<TickSpec<DateTime>> tickSpecs;
 
@@ -205,7 +204,7 @@ class StaticDateTimeTickProviderSpec implements DateTimeTickProviderSpec {
 }
 
 /// Formatters for a single level of the [DateTimeTickFormatterSpec].
-@immutable
+
 class TimeFormatterSpec {
   final String? format;
   final String? transitionFormat;
@@ -244,7 +243,7 @@ class TimeFormatterSpec {
 
 /// A [DateTimeTickFormatterSpec] that accepts a [DateFormat] or a
 /// [DateTimeFormatterFunction].
-@immutable
+
 class BasicDateTimeTickFormatterSpec implements DateTimeTickFormatterSpec {
   final DateTimeFormatterFunction? formatter;
   final DateFormat? dateFormat;
@@ -287,7 +286,7 @@ class BasicDateTimeTickFormatterSpec implements DateTimeTickFormatterSpec {
 /// formatting based on the tick stepSize. Each level of date granularity has
 /// its own [TimeFormatterSpec] used to specify the formatting strings at that
 /// level.
-@immutable
+
 class AutoDateTimeTickFormatterSpec implements DateTimeTickFormatterSpec {
   final TimeFormatterSpec? minute;
   final TimeFormatterSpec? hour;

@@ -16,8 +16,6 @@
 import 'package:charts_common/common.dart' as common
     show ChartBehavior, DomainHighlighter, SelectionModelType;
 
-import 'package:meta/meta.dart' show immutable;
-
 import 'chart_behavior.dart' show ChartBehavior, GestureType;
 
 /// Chart behavior that monitors the specified [SelectionModel] and darkens the
@@ -27,7 +25,7 @@ import 'chart_behavior.dart' show ChartBehavior, GestureType;
 ///
 /// It is used in combination with SelectNearest to update the selection model
 /// and expand selection out to the domain value.
-@immutable
+
 class DomainHighlighter<D> extends ChartBehavior<D> {
   final desiredGestures = new Set<GestureType>();
 

@@ -25,7 +25,7 @@ import 'package:charts_common/common.dart' as common
         SelectionModelType,
         SelectionTrigger;
 import 'behaviors/select_nearest.dart' show SelectNearest;
-import 'package:meta/meta.dart' show immutable;
+
 import 'behaviors/chart_behavior.dart'
     show ChartBehavior, ChartStateBehavior, GestureType;
 import 'selection_model_config.dart' show SelectionModelConfig;
@@ -33,7 +33,6 @@ import 'package:flutter/material.dart' show StatefulWidget;
 import 'base_chart_state.dart' show BaseChartState;
 import 'user_managed_state.dart' show UserManagedState;
 
-@immutable
 abstract class BaseChart<D> extends StatefulWidget {
   /// Series list to draw.
   final List<common.Series<dynamic, D>> seriesList;
@@ -257,7 +256,6 @@ abstract class BaseChart<D> extends StatefulWidget {
   }
 }
 
-@immutable
 class LayoutConfig {
   final common.MarginSpec leftMarginSpec;
   final common.MarginSpec topMarginSpec;

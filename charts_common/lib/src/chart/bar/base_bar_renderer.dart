@@ -16,8 +16,7 @@
 import 'dart:collection' show LinkedHashMap, HashSet;
 import 'dart:math' show Point, Rectangle, max;
 
-import 'package:collection/collection.dart' show IterableExtension;
-import 'package:meta/meta.dart' show protected;
+
 
 import '../../common/color.dart' show Color;
 import '../../common/math.dart' show clamp;
@@ -344,7 +343,7 @@ abstract class BaseBarRenderer<D, R extends BaseBarRendererElement,
   ///
   /// This is intended to be overridden by child classes that need to add
   /// customized rendering properties.
-  @protected
+
   R getBaseDetails(dynamic datum, int index);
 
   @override
@@ -421,9 +420,34 @@ abstract class BaseBarRenderer<D, R extends BaseBarRendererElement,
 
         var barStackList = _barStackMap.putIfAbsent(barStackMapKey, () => []);
 
+        var defaultanimatingBar = makeAnimatedBar(
+                key: barKey,
+                series: series,
+                datum: datum,
+                barGroupIndex: barGroupIndex!,
+                previousBarGroupWeight: previousBarGroupWeight,
+                barGroupWeight: barGroupWeight,
+                allBarGroupWeights: allBarGroupWeights,
+                color: colorFn!(barIndex),
+                dashPattern: dashPatternFn!(barIndex),
+                details: details as R,
+                domainValue: domainFn(barIndex),
+                domainAxis: domainAxis,
+                domainWidth: domainAxis.rangeBand.round(),
+                fillColor: fillColorFn!(barIndex),
+                fillPattern: details.fillPattern,
+                measureValue: 0.0,
+                measureOffsetValue: 0.0,
+                measureAxisPosition: measureAxisPosition,
+                measureAxis: measureAxis,
+                numBarGroups: barGroupCount!,
+                strokeWidthPx: details.strokeWidthPx,
+                measureIsNull: measureIsNull,
+                measureIsNegative: measureIsNegative);
+
         // If we already have an AnimatingBarfor that index, use it.
         var animatingBar =
-            barStackList.firstWhereOrNull((B bar) => bar.key == barKey);
+            barStackList.firstWhere((B bar) => bar.key == barKey, orElse: () => defaultanimatingBar);
 
         // If we don't have any existing bar element, create a new bar and have
         // it animate in from the domain axis.
@@ -521,7 +545,7 @@ abstract class BaseBarRenderer<D, R extends BaseBarRendererElement,
 
   /// Generates a [BaseAnimatedBar] to represent the previous and current state
   /// of one bar on the chart.
-  @protected
+
   B makeAnimatedBar(
       {required String key,
       required ImmutableSeries<D> series,
@@ -549,7 +573,7 @@ abstract class BaseBarRenderer<D, R extends BaseBarRendererElement,
 
   /// Generates a [BaseBarRendererElement] to represent the rendering data for
   /// one bar on the chart.
-  @protected
+
   R makeBarRendererElement(
       {required int barGroupIndex,
       double? previousBarGroupWeight,
@@ -614,7 +638,7 @@ abstract class BaseBarRenderer<D, R extends BaseBarRendererElement,
   }
 
   /// Paints a stack of bar elements on the canvas.
-  @protected
+
   void paintBar(
       ChartCanvas canvas, double animationPercent, Iterable<R> barElements);
 
@@ -686,10 +710,10 @@ abstract class BaseBarRenderer<D, R extends BaseBarRendererElement,
     return nearest;
   }
 
-  @protected
+
   Rectangle<int>? getBoundsForBar(R bar);
 
-  @protected
+
   List<BaseAnimatedBar<D, R>> _getSegmentsForDomainValue(D? domainValue,
       {bool Function(BaseAnimatedBar<D, R> bar)? where}) {
     final matchingSegments = <BaseAnimatedBar<D, R>>[];
@@ -781,7 +805,7 @@ abstract class BaseBarRenderer<D, R extends BaseBarRendererElement,
   /// * Otherwise, return iterator of the reversed list
   ///
   /// All other types, use the in order iterator.
-  @protected
+
   Iterable<S> getOrderedSeriesList<S extends ImmutableSeries<D>>(
       List<S> seriesList) {
     return (renderingVertically && config.stacked)
@@ -811,7 +835,7 @@ class _ReversedSeriesIterable<S extends ImmutableSeries<Object?>>
 /// order it was passed in for the grouping, but the series is flipped so that
 /// the first series of that category is on the top of the stack.
 class _ReversedSeriesIterator<S extends ImmutableSeries<Object?>>
-    extends Iterator<S> {
+    implements Iterator<S> {
   final List<S> _list;
   final _visitIndex = <int>[];
   int? _current;
@@ -835,9 +859,10 @@ class _ReversedSeriesIterator<S extends ImmutableSeries<Object?>>
   bool moveNext() {
     _current = (_current == null) ? 0 : _current! + 1;
 
-    return _current! < _list.length;
+    return _current! < _visitIndex.length;
   }
 
   @override
   S get current => _list[_visitIndex[_current!]];
 }
+

@@ -17,13 +17,11 @@ import 'package:flutter/widgets.dart' show AnimationController;
 
 import 'package:charts_common/common.dart' as common
     show BaseChart, ChartBehavior, InitialHintBehavior;
-import 'package:meta/meta.dart' show immutable;
 
 import '../../base_chart_state.dart' show BaseChartState;
 import '../chart_behavior.dart'
     show ChartBehavior, ChartStateBehavior, GestureType;
 
-@immutable
 class InitialHintBehavior<D> extends ChartBehavior<D> {
   final desiredGestures = new Set<GestureType>();
 

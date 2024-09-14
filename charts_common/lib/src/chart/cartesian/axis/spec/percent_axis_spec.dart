@@ -13,7 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:meta/meta.dart' show immutable;
 import 'package:intl/intl.dart';
 
 import '../numeric_extents.dart' show NumericExtents;
@@ -27,7 +26,7 @@ import 'numeric_axis_spec.dart'
         NumericTickFormatterSpec;
 
 /// Convenience [AxisSpec] specialized for numeric percentage axes.
-@immutable
+
 class PercentAxisSpec extends NumericAxisSpec {
   /// Creates a [NumericAxisSpec] that is specialized for percentage data.
   PercentAxisSpec({

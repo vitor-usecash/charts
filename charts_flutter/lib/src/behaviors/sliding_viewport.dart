@@ -16,8 +16,6 @@
 import 'package:charts_common/common.dart' as common
     show ChartBehavior, SelectionModelType, SlidingViewport;
 
-import 'package:meta/meta.dart' show immutable;
-
 import 'chart_behavior.dart' show ChartBehavior, GestureType;
 
 /// Chart behavior that centers the viewport on the selected domain.
@@ -26,7 +24,7 @@ import 'chart_behavior.dart' show ChartBehavior, GestureType;
 /// and notify this behavior to update the viewport on selection change.
 ///
 /// This behavior can only be used on [CartesianChart].
-@immutable
+
 class SlidingViewport<D> extends ChartBehavior<D> {
   final desiredGestures = new Set<GestureType>();
 
